@@ -1,3 +1,5 @@
+// Setup empty JS object to act as endpoint for all routes
+serverData = {};
 
 // For using the .env file to help hide PII
 // Reference variables you created in the .env file by putting process.env in front of it
@@ -37,25 +39,87 @@ app.use(express.static('dist'))
 //     //res.sendFile(path.resolve('src/client/views/index.html'))
 // })
 
-// designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
-})
+// Define what port to use
+const port = 8081;
 
+// Callback function for the server listener
+function listening() {
+  console.log('Natural language processing app running');
+  console.log(`Running on localhost: ${port}`);
+}
+
+// designates what port the app will listen to for incoming requests
+app.listen(port, listening);
+
+//Just for initial testing
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.get('/api', function (req, res) {
-  console.log(nlp.summarize({
-    url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
-    sentences_number: 3
-  }, function(error, response) {
-    if (error === null) {
-      response.sentences.forEach(function(s) {
-        console.log(s);
-      });
-    }
-  }));
-  res.send(nlp)
+//GET rout for getting the nlp sumarry of the url given
+app.post('/nlp', function (req, res) {
+  //try {
+    
+    nlp.sentiment(
+      {
+        //url: serverData.site,
+        text: req.body.text
+      }, 
+      function(error, response) {
+        if (error === null)
+          res.send(response);
+        }
+    )
+  // }
+  // catch(error) {
+  //   console.log('error in getting summary', error);
+  // }
+  // res.send(serverData);
 })
+
+
+// POST route.  Just adds the url to summarize
+app.post('/nlp', function (request, response) {
+  //console.log('made it to the server post')
+  serverData.site = request.body.site;
+  response.send(serverData);
+});
+
+// //Function to summarize the data in the url using the aylien api
+// // Puts the summary into the serverData object
+// async function getSummary(){
+//   ret = []
+//   await nlp.summarize(
+//     {
+//       url: serverData.site,
+//       sentences_number: 4
+//     }, 
+//     function(error, response) {
+//       if (error === null) {
+//         response.sentences
+//       }
+//     });
+//   try {
+//     console.log(ret);
+//   }
+//   catch {
+//     console.log('error in getSummary()', error);
+//   }
+// }
+
+
+
+// app.get('/nlp', function (req, res) {
+//   console.log(nlp.summarize({
+//     url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
+//     sentences_number: 3
+//   }, function(error, response) {
+//     if (error === null) {
+//       response.sentences.forEach(function(s) {
+//         console.log(s);
+//       });
+//     }
+//   }));
+//   res.send(nlp)
+// })
+
