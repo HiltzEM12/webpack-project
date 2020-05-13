@@ -117,19 +117,19 @@ Tips:
 
 Getting started:
 ** Run as andmin
-1) Set up git (make sure you're in the correct directory)
-  a) clone the repository to your machine then go to the folder and run the following:
-    git init
-    git add .
-    git commit -m "Initial commit"
-  b) Create repository in gitHub then go back to bash and run the following:
-    git remote add origin <repository url>
-    git push -u origin master
-2) install the program via the following:
-  npm install
-3) check to see if the install worked
-  npm run build-dev
-4) check if it compiles:
-  npm run build-prod
-  a) as you change the code and add features, you'll need to install other packages to get this running"
-    npm i <package name>
+-1) Set up git (make sure you're in the correct directory)
+  -a) clone the repository to your machine then go to the folder and run the following:
+    --git init
+    --git add .
+    --git commit -m "Initial commit"
+  -b) Create repository in gitHub then go back to bash and run the following:
+    --git remote add origin <repository url>
+    --git push -u origin master
+-2) install the program via the following:
+  --npm install
+-3) check to see if the install worked
+  --npm run build-dev
+-4) check if it compiles:
+  --npm run build-prod
+  -a) as you change the code and add features, you'll need to install other packages to get this running"
+    --npm i <package name>
