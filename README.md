@@ -106,3 +106,24 @@ Once you are hooked up to the Aylien API, you are most of the way there! Along w
 ## Deploying
 
 A great step to take with your finished project would be to deploy it! Unfortunately its a bit out of scope for me to explain too much about how to do that here, but checkout [Netlify](https://www.netlify.com/) or [Heroku](https://www.heroku.com/) for some really intuitive free hosting options.
+
+
+## Notes from student
+Tips:
+  Ctrl+~ opens the terminal
+  Ctrl+C stops a server when running in the terminal
+
+Getting started:
+** Run as andmin
+1) Set up git (make sure you're in the correct directory)
+  a) clone the repository to your machine then go to the folder and run the following:
+    git init
+    git add .
+    git commit -m "Initial commit"
+  b) Create repository in gitHub then go back to bash and run the following:
+    git remote add origin <repository url>
+    git push -u origin master
+2) install the program via the following:
+  npm install
+3) check to see if the install worked
+  npm run build-dev
