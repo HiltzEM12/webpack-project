@@ -3,7 +3,6 @@
 // statement summary
 // The argument here is the statement to analyze
 async function updateSummary(data){
-    
     //Post to the server with the sentence as an argument
     fetch('http://localhost:8081/nlp', {
         method: 'POST',
@@ -15,9 +14,7 @@ async function updateSummary(data){
     })
     .then(res => res.json())  //Process the json
     .then(function(res) { // Apply the results to the DOM
-        document.getElementById('txt').innerHTML = 'Text entered: ' + res.text;
-        document.getElementById('obj').innerHTML = 'Polarity of the statment: ' + res.polarity;
-        document.getElementById('subj').innerHTML = 'Subjectivity of the statment: ' + res.subjectivity;
+        document.getElementById('results').innerHTML = res.sentences.join(' '); //Join the sentences as they're in an array
     })
 }
 

@@ -51,10 +51,11 @@ app.get('/test', function (req, res) {
 
 //GET rout for getting the nlp sumarry of the statement given
 app.post('/nlp', function (req, res) {
-    
-    nlp.sentiment(
+
+    nlp.summarize(
       {
-        text: req.body.text
+        url: req.body.text,
+        sentences_number: 3
       }, 
       function(error, response) {
         if (error === null)

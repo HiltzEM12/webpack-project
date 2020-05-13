@@ -14,33 +14,29 @@
 
         <header>
             <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+                Enter a url of an article that you wish to summarize, then click submit to see the summary.
             </div>
         </header>
 
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Enter a sentence you want to summarize">
+                    <input id="name" type="text" name="input" value="" placeholder="Enter a url you want to summarize">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
-
+                
             <section>
                 <strong>Form Results:</strong>
-                <div id="results">
-                    <div id ="txt"></div>
-                    <div id ="obj"></div>
-                    <div id ="subj"></div>
-                </div>
+                <br>
+                <div id="results"></div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>
+                <a href="https://docs.aylien.com/">NLP brouth to you by Aylien</a>
+            </p>
         </footer>
 
         <script>
