@@ -112,6 +112,8 @@ A great step to take with your finished project would be to deploy it! Unfortuna
 Tips:
   Ctrl+~ opens the terminal
   Ctrl+C stops a server when running in the terminal
+  To run the Express server use:
+    npm run start
 
 Getting started:
 ** Run as andmin
@@ -127,3 +129,7 @@ Getting started:
   npm install
 3) check to see if the install worked
   npm run build-dev
+4) check if it compiles:
+  npm run build-prod
+  a) as you change the code and add features, you'll need to install other packages to get this running"
+    npm i <package name>

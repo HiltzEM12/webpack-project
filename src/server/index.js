@@ -1,3 +1,23 @@
+
+// For using the .env file to help hide PII
+// Reference variables you created in the .env file by putting process.env in front of it
+const dotenv = require('dotenv');
+dotenv.config();
+
+// For the nlp (natural language processing)
+const aylien = require("aylien_textapi");
+// set aylien API credentias
+var textapi = new aylien({
+    application_id: "your-api-id",
+    application_key: "your-key"
+  });
+
+// set aylien API credentials
+var textapi = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+});
+
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
