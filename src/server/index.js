@@ -1,5 +1,5 @@
-// Setup empty JS object to act as endpoint for all routes
-serverData = {};
+// // Setup empty JS object to act as endpoint for all routes
+// serverData = {};
 
 // For using the .env file to help hide PII
 // Reference variables you created in the .env file by putting process.env in front of it
@@ -32,13 +32,6 @@ app.use(bodyParser.urlencoded({
 // Can be changed in the output in the config files if wanted
 app.use(express.static('dist'))
 
-//console.log(__dirname)
-
-// app.get('/', function (req, res) {
-//     res.sendFile('dist/index.html')
-//     //res.sendFile(path.resolve('src/client/views/index.html'))
-// })
-
 // Define what port to use
 const port = 8081;
 
@@ -56,13 +49,11 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-//GET rout for getting the nlp sumarry of the url given
+//GET rout for getting the nlp sumarry of the statement given
 app.post('/nlp', function (req, res) {
-  //try {
     
     nlp.sentiment(
       {
-        //url: serverData.site,
         text: req.body.text
       }, 
       function(error, response) {
@@ -70,56 +61,6 @@ app.post('/nlp', function (req, res) {
           res.send(response);
         }
     )
-  // }
-  // catch(error) {
-  //   console.log('error in getting summary', error);
-  // }
-  // res.send(serverData);
 })
 
-
-// POST route.  Just adds the url to summarize
-app.post('/nlp', function (request, response) {
-  //console.log('made it to the server post')
-  serverData.site = request.body.site;
-  response.send(serverData);
-});
-
-// //Function to summarize the data in the url using the aylien api
-// // Puts the summary into the serverData object
-// async function getSummary(){
-//   ret = []
-//   await nlp.summarize(
-//     {
-//       url: serverData.site,
-//       sentences_number: 4
-//     }, 
-//     function(error, response) {
-//       if (error === null) {
-//         response.sentences
-//       }
-//     });
-//   try {
-//     console.log(ret);
-//   }
-//   catch {
-//     console.log('error in getSummary()', error);
-//   }
-// }
-
-
-
-// app.get('/nlp', function (req, res) {
-//   console.log(nlp.summarize({
-//     url: 'http://techcrunch.com/2015/04/06/john-oliver-just-changed-the-surveillance-reform-debate',
-//     sentences_number: 3
-//   }, function(error, response) {
-//     if (error === null) {
-//       response.sentences.forEach(function(s) {
-//         console.log(s);
-//       });
-//     }
-//   }));
-//   res.send(nlp)
-// })
 

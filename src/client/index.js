@@ -1,4 +1,3 @@
-//import { postUrl } from './js/serverFunctions'
 import { updateSummary } from './js/serverFunctions'
 import { handleSubmit } from './js/formHandler'
 
@@ -8,13 +7,7 @@ import './styles/form.scss'
 import './styles/footer.scss'
 import './styles/header.scss'
 
-// console.log(checkForName);
-
-// alert("I EXIST")
-// console.log("CHANGE!!");
-
 export {
-    //postUrl,
     handleSubmit,
     updateSummary
 }
